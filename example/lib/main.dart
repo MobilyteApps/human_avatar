@@ -24,6 +24,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final secretKey='Z0BHr9hDpHw0yl9pQsiMHTN6cXKHR9Ue';
+
   final _humanAvatarPlugin = HumanAvatar();
   AvatarData? data;
   CreateVideoAvatarData? createVideoAvatarData;
