@@ -4,7 +4,7 @@
 
 A  Flutter package for create video by using human avatar.
 
-![The example playing video](https://github.com/MobilyteApps/human_avatar/docs/human_video.gif?raw=true)
+![The example playing video](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3g4OHdpNjZobTFlcnk1NnR5am1pZDM3eHlzOGFubHc2NjhweGJhbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VeQgnGpsoMBSTbUMMk/giphy.gif)
 
 ## Installation
 
