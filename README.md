@@ -4,6 +4,7 @@
 
 A  Flutter package for create video by using human avatar.
 
+![The example playing video](https://github.com/MobilyteApps/human_avatar/docs/human_video.gif?raw=true)
 
 ## Installation
 
