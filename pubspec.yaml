@@ -1,6 +1,6 @@
 name: human_avatar
 description: A Flutter package for both ios and android creating animation text to speech.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/MobilyteApps/human_avatar
 repository: https://github.com/MobilyteApps/human_avatar
 issue_tracker: https://github.com/MobilyteApps/human_avatar/issues

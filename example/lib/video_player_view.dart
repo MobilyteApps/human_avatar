@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-
 class VideoPlayerView extends StatefulWidget {
- final  String url;
-   const VideoPlayerView(this.url, {Key? key}) : super(key: key);
+  final String url;
+  const VideoPlayerView(this.url, {Key? key}) : super(key: key);
 
   @override
   State<VideoPlayerView> createState() => _VideoPlayerViewState();
@@ -14,13 +13,13 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   late VideoPlayerController _controller;
   @override
   void initState() {
-    _controller = VideoPlayerController.networkUrl(Uri.parse(
-        widget.url))
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.url))
       ..initialize().then((_) {
         setState(() {});
       });
     super.initState();
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -34,9 +33,9 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
       body: Center(
         child: _controller.value.isInitialized
             ? AspectRatio(
-          aspectRatio: _controller.value.aspectRatio,
-          child: VideoPlayer(_controller),
-        )
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
             : Container(),
       ),
       floatingActionButton: FloatingActionButton(

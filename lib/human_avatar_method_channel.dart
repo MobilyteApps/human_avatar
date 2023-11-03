@@ -8,5 +8,4 @@ class MethodChannelHumanAvatar extends HumanAvatarPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('human_avatar');
-
 }
