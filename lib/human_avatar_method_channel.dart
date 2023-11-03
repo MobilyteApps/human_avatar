@@ -9,9 +9,4 @@ class MethodChannelHumanAvatar extends HumanAvatarPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('human_avatar');
 
-  @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
-  }
 }

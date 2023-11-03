@@ -8,8 +8,9 @@ AvatarData avatarDataFromJson(String str) => AvatarData.fromJson(json.decode(str
 
 String avatarDataToJson(AvatarData data) => json.encode(data.toJson());
 
+///this data class is used for create image avatar response handele
 class AvatarData {
-  String? avatarDataId;
+  String? avatarDataId; ///this is avatar id
   int? status;
   String? type;
   int? version;

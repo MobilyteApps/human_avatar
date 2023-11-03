@@ -30,7 +30,7 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  ///this is for create Avatar.
+  ///this is for create [human_avatar] Avatar.
   Future<AvatarData?>createAvatar(
       String secretKey,
       String gender,
@@ -39,11 +39,11 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
     try{
       var url = Uri.parse('https://apis.elai.io/api/v1/avatars');
       var headers = {
-        'Authorization': 'Bearer $secretKey',
+        'Authorization': 'Bearer $secretKey', ///Here is Api Header
         'accept': 'application/json',
         'content-type': 'application/json',
       };
-
+      ///Here is Api body
       var body = jsonEncode({
         "gender": gender,
         "image": {
@@ -51,11 +51,11 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
           "data": photoData
         }
       });
-
+      ///Here is Api add request .....
       var response = await http.post(url, headers: headers, body: body);
-
+      ///Here is Api response check error or success
       if (response.statusCode == 200) {
-        return AvatarData.fromJson(jsonDecode(response.body));
+        return AvatarData.fromJson(jsonDecode(response.body));///handle json response data class
       } else {
         return null;
       }
@@ -66,8 +66,8 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
 
 
 
-  ///this is api implementation for create Video avatar
-  Future<CreateVideoAvatarData?> createVideoAvatar(
+  ///this is api implementation for create [human_avatar] Video avatar
+ Future<CreateVideoAvatarData?> createVideoAvatar(
       String secretKey,
       String imageUrl,
       String speechText,
@@ -77,13 +77,14 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
       String avatarId,
       Null Function(CreateVideoAvatarData value) onRender) async {
     try {
-      final url = Uri.parse('https://apis.elai.io/api/v1/videos');
+      final url = Uri.parse('https://apis.elai.io/api/v1/videos');///Here is Api base Url [human_avatar] create video
+      ///Here is Api Header [human_avatar] create video
       final headers = {
         'Accept': 'application/json',
         'Authorization': 'Bearer $secretKey',
         'Content-Type': 'application/json',
       };
-
+      ///Here is Api body [human_avatar] create video
       final data = {
         "name": videoName,
         "slides": [
@@ -127,7 +128,7 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
         ],
         "tags": ["test"],
       };
-
+      ///Here is Api add request [human_avatar] create video
       final response = await http.post(
         url,
         headers: headers,
@@ -135,7 +136,7 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
       );
 
       if (response.statusCode == 200) {
-        var res=  CreateVideoAvatarData.fromJson(jsonDecode(response.body));
+        var res=  CreateVideoAvatarData.fromJson(jsonDecode(response.body));///handle json response data class
        var result= await renderVideoAvatar(secretKey,res.id??'',onRender);
        if(result!=null){
          return result;
@@ -153,24 +154,25 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
 
 
 
-  ///this is api implementation for render  Video avatar by its id
+  ///this is api implementation for render [human_avatar] Video avatar by its id
  Future<CreateVideoAvatarData?> renderVideoAvatar(
      String secretKey,
      String videoId,
      Null Function(CreateVideoAvatarData value) onRender) async {
     try {
       final url = Uri.parse(
-          'https://apis.elai.io/api/v1/videos/render/$videoId');
+          'https://apis.elai.io/api/v1/videos/render/$videoId');///Here is Api base Url [human_avatar] render video
+      ///Here is Api header [human_avatar] render video
       final headers = {
         'Authorization': 'Bearer $secretKey',
         'accept': 'application/json',
       };
-
+      ///Here is Api add request [human_avatar] render video
       final response = await http.post(url, headers: headers);
 
       if (response.statusCode == 200) {
 
-       var res= await retrieveVideoAvatar(secretKey,videoId,onRender);
+       var res= await retrieveVideoAvatar(secretKey,videoId,onRender);///Calling function retrieve video Avatar on render success
        if(res!=null){
          return res;
        }else{
@@ -191,8 +193,10 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
      String videoId,
      Null Function(CreateVideoAvatarData value) onRender) async {
     try {
+      //retrieve video base url with append video Id
       final url = Uri.parse(
           'https://apis.elai.io/api/v1/videos/$videoId');
+      ///retrieve video header
       final headers = {
         'Authorization': 'Bearer $secretKey',
         'accept': 'application/json',
@@ -215,18 +219,23 @@ abstract class HumanAvatarPlatform extends PlatformInterface {
     }catch(e){
       return null;
     }
+    return null;
   }
 
 
-  ///this is api implementation for get all Video avatar list
+  ///this is api implementation for get all [human_avatar] Video avatar list
   Future<String?>retrieveAllVideos(String secretKey, String? page, String? limit) async {
     try {
+      /// Here is base url retrieve all videos with pagination
       final url = Uri.parse(
           'https://apis.elai.io/api/v1/videos?page=$page&limit=$limit');
+      ///Add Header
       final headers = {
         'Authorization': 'Bearer $secretKey',
         'accept': 'application/json',
       };
+
+      ///Here is Add request
       final response = await http.get(url, headers: headers);
       if (response.statusCode == 200) {
         return response.body;

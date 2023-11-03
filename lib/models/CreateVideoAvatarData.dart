@@ -8,6 +8,7 @@ CreateVideoAvatarData createVideoAvatarDataFromJson(String str) => CreateVideoAv
 
 String createVideoAvatarDataToJson(CreateVideoAvatarData data) => json.encode(data.toJson());
 
+/// this data class is used for handle response  create video from avatar
 class CreateVideoAvatarData {
   String? id;
   String? name;
