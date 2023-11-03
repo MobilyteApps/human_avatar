@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Update documentation and dart code refactor added dummy video in readme file
+
 ## 0.0.4
 
 * Update documentation for better experience and dart code refactor
