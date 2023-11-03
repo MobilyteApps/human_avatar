@@ -36,6 +36,13 @@ class CreateVideoAvatarData {
   DateTime? updatedAt;
 
   ///This is constructor of [CreateVideoAvatarData]
+  /// [id] that contain String value of Avatar video ID
+  /// [name] is contain String  value video name
+  /// [url] , [sourceId], [status], [userId], [accountId] is contain String Values
+  /// [deleted] , [verified], [public] is contain bool Values
+  /// [slides] is contains a list of items
+  /// [tags] is contains a list of items
+  /// [createdAt] , [updatedAt] is contain [DateTime] Values
   CreateVideoAvatarData({
     this.id,
     this.name,
@@ -53,6 +60,13 @@ class CreateVideoAvatarData {
     this.updatedAt,
   });
 
+  /// [id] that contain String value of Avatar video ID
+  /// [name] is contain String  value video name
+  /// [url] , [sourceId], [status], [userId], [accountId] is contain String Values
+  /// [deleted] , [verified], [public] is contain bool Values
+  /// [slides] is contains a list of items
+  /// [tags] is contains a list of items
+  /// [createdAt] , [updatedAt] is contain [DateTime] Values
   factory CreateVideoAvatarData.fromJson(Map<String, dynamic> json) =>
       CreateVideoAvatarData(
         id: json["_id"],
@@ -79,6 +93,13 @@ class CreateVideoAvatarData {
             : DateTime.parse(json["updatedAt"]),
       );
 
+  /// [id] that contain String value of Avatar video ID
+  /// [name] is contain String  value video name
+  /// [url] , [sourceId], [status], [userId], [accountId] is contain String Values
+  /// [deleted] , [verified], [public] is contain bool Values
+  /// [slides] is contains a list of items
+  /// [tags] is contains a list of items
+  /// [createdAt] , [updatedAt] is contain [DateTime] Values
   Map<String, dynamic> toJson() => {
         "_id": id,
         "name": name,
@@ -117,6 +138,10 @@ class Slide {
   String? voiceProvider;
 
   ///This is constructor of [Slide]
+  /// [id] that contain int value
+  /// [animation] , [language], [speech], [voice], [voiceType], [voiceProvider] is contain String Values
+  /// [Canvas] ,[Avatar] is contains a object values
+  /// [tags] is contains a list of items
   Slide({
     this.id,
     this.canvas,
@@ -129,6 +154,10 @@ class Slide {
     this.voiceProvider,
   });
 
+  /// [id] that contain int value
+  /// [animation] , [language], [speech], [voice], [voiceType], [voiceProvider] is contain String Values
+  /// [Canvas] ,[Avatar] is contains a object values
+  /// [tags] is contains a list of items
   factory Slide.fromJson(Map<String, dynamic> json) => Slide(
         id: json["id"],
         canvas: json["canvas"] == null ? null : Canvas.fromJson(json["canvas"]),
@@ -166,6 +195,9 @@ class Avatar {
   String? canvas;
 
   ///This is constructor of [Avatar]
+  /// [id] that contain String value id of avatar image
+  /// [version] is contain upadted or latest version
+  /// [name] ,[gender],[canvas] is contains String values
   Avatar({
     this.id,
     this.version,
@@ -174,6 +206,9 @@ class Avatar {
     this.canvas,
   });
 
+  /// [id] that contain String value id of avatar image
+  /// [version] is contain upadted or latest version
+  /// [name] ,[gender],[canvas] is contains String values
   factory Avatar.fromJson(Map<String, dynamic> json) => Avatar(
         id: json["id"],
         version: json["version"],
@@ -182,6 +217,9 @@ class Avatar {
         canvas: json["canvas"],
       );
 
+  /// [id] that contain String value id of avatar image
+  /// [version] is contain upadted or latest version
+  /// [name] ,[gender],[canvas] is contains String values
   Map<String, dynamic> toJson() => {
         "id": id,
         "version": version,
@@ -201,12 +239,18 @@ class Canvas {
   String? version;
 
   ///This is constructor of [Canvas]
+  /// [objects] is a list of items
+  /// [background] is contain background color
+  /// [version] is contains String values
   Canvas({
     this.objects,
     this.background,
     this.version,
   });
 
+  /// [objects] is a list of items
+  /// [background] is contain background color
+  /// [version] is contains String values
   factory Canvas.fromJson(Map<String, dynamic> json) => Canvas(
         objects: json["objects"] == null
             ? []
@@ -216,6 +260,9 @@ class Canvas {
         version: json["version"],
       );
 
+  /// [objects] is a list of items
+  /// [background] is contain background color
+  /// [version] is contains String values
   Map<String, dynamic> toJson() => {
         "objects": objects == null
             ? []
@@ -244,6 +291,11 @@ class Object {
   Animation? animation;
 
   ///This is constructor of [Object]
+  /// [type] that contain String value type of avatar image
+  /// [version] is contain upadted or latest version
+  /// [left],[scaleX],[scaleY] is double value used to alignment of image
+  /// [fill], [src], [avatarType] contains string value
+  ///[animation] Contains object values
   Object({
     this.type,
     this.version,
@@ -257,6 +309,11 @@ class Object {
     this.animation,
   });
 
+  /// [type] that contain String value type of avatar image
+  /// [version] is contain upadted or latest version
+  /// [left],[scaleX],[scaleY] is double value used to alignment of image
+  /// [fill], [src], [avatarType] contains string value
+  ///[animation] Contains object values
   factory Object.fromJson(Map<String, dynamic> json) => Object(
         type: json["type"],
         version: json["version"],
@@ -272,6 +329,11 @@ class Object {
             : Animation.fromJson(json["animation"]),
       );
 
+  /// [type] that contain String value type of avatar image
+  /// [version] is contain upadted or latest version
+  /// [left],[scaleX],[scaleY] is double value used to alignment of image
+  /// [fill], [src], [avatarType] contains string value
+  ///[animation] Contains object values
   Map<String, dynamic> toJson() => {
         "type": type,
         "version": version,
@@ -294,15 +356,21 @@ class Animation {
   dynamic exitType;
 
   ///This is constructor of [Animation]
+  ///[type],[exitType] is contains dynamic value
+
   Animation({
     this.type,
     this.exitType,
   });
 
+  ///[type],[exitType] is contains dynamic value
+
   factory Animation.fromJson(Map<String, dynamic> json) => Animation(
         type: json["type"],
         exitType: json["exitType"],
       );
+
+  ///[type],[exitType] is contains dynamic value
 
   Map<String, dynamic> toJson() => {
         "type": type,
